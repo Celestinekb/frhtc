@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message to Farha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Basic styling */
+    body {
+      background: radial-gradient(circle at top left, #ffdee9, #f0b7cd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Particle effect */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background-color: #ff3399;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: particleAnimation 4s infinite;
+    }
+
+    /* Message container */
+    .message-container {
+      position: relative;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      color: #e60073;
+      text-align: center;
+      max-width: 90%;
+      border-radius: 20px;
+      padding: 25px;
+      background: linear-gradient(135deg, #ffe6f2, #ffccff);
+      background-size: 200% 200%;
+      animation: backgroundFlow 5s ease infinite, bounceIn 1.2s ease;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* Typing effect */
+    .message {
+      display: inline-block;
+      white-space: pre-wrap;
+      overflow: hidden;
+      max-width: 100%;
+      animation: typeWriter 5s steps(40) 1s forwards;
+    }
+
+    /* Animated names */
+    .highlight-farha, .highlight-cele {
+      display: inline-block;
+      animation: rainbow 3s linear infinite;
+    }
+
+    /* Animation for 3D text-shadow */
+    .highlight-farha span, .highlight-cele span {
+      color: #ff3399;
+      text-shadow: 2px 2px 0 #ff66cc, 4px 4px 0 #ff99cc;
+    }
+
+    /* Background gradient flow */
+    @keyframes backgroundFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Typing animation */
+    @keyframes typeWriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Particle floating and bouncing */
+    @keyframes particleAnimation {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Rainbow gradient */
+    @keyframes rainbow {
+      0% { color: #ff3399; }
+      25% { color: #ff66cc; }
+      50% { color: #ff99cc; }
+      75% { color: #ffb3d9; }
+      100% { color: #ff3399; }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .message-container { font-size: 1.7em; padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .message-container { font-size: 1.3em; padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle effect for extra charm -->
+  <div class="particles"></div>
+
+  <!-- Message container with animated names -->
+  <div class="message-container">
+    <div class="message">
+      <span class="highlight-farha">Hey Farha</span>,<br><br>
+      I made this whole website just to say—I absolutely love you. You're honestly the coolest, most amazing person I've ever known. But why do you have to be so distant? It breaks my heart when I have to send message after message just to get a reply from you.<br><br>
+      <span class="highlight-cele">Cele</span>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for generating particles
+    const particlesContainer = document.querySelector('.particles');
+
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 8 + 8;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.animationDuration = `${Math.random() * 2 + 2}s`;
+      particlesContainer.appendChild(particle);
+
+      // Remove particle after animation ends
+      particle.addEventListener('animationend', () => {
+        particle.remove();
+      });
+    }
+
+    setInterval(createParticle, 100);
+  </script>
+</body>
+</html>
